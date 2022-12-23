@@ -16,14 +16,14 @@
 
 주제 4. 간단한 차량 측면 동작을 모델링해보자.</br></br>
 
-주제 5. 다른 주행 모드도 적용해보자.</br></br>
+주제 5. 다른 주행 모드도 적용해보자.</br></br></br></br></br>
 
 
 <h3>주제 1</h3>
 
 속도와 가속도 사이의 역학을 간단한 전달함수로 설정하여 차량을 모델링해보자.
 
-**모델링 과정**
+<h3>모델링 과정</h3>
 
 속도와 가속도 사이 역학은 MathWorks의 Adaptive Cruise Control에서 참고하였다.
 
@@ -45,13 +45,13 @@ Saturation 블록은 속도를 positive 영역으로, 가속도를 -3에서 2로
 
 위치 그래프는 100에서 시작하여 5초 이후로는 속도 20에 맞춰 일정하게 증가하는것을 확인할 수 있다.
 
-설계 의도대로 모델링된것을 확인할 수 있었다.
+설계 의도대로 모델링된것을 확인할 수 있었다.</br></br></br></br></br>
 
 <h3>주제 2</h3>
 
 Simulink에서 제공하는 Adaptive Cruise Control 모델을 적용해보자.
 
-**Adaptive Cruise Control System Block**
+<h3>Adaptive Cruise Control System Block</h3>
 
 Adaptive Cruise Control 블록의 파라미터는 아래 그림과 같이 설정할 수 있다.</br>
 
@@ -65,7 +65,7 @@ Model Predictive Controller Settings에서는 해당 블록의 샘플링 빈,
 
 Controller Behavior에서는 숫자가 1에 가까울수록 응답시간이 빨라지면서 빠른 변화를 보인다.
 
-**모델링 과정**
+<h3>모델링 과정</h3>
 
 앞서 설계했던 차량 모델에 Adaptive Cruise Control을 적용하여 차량이 앞선 차량과 자동으로 거리유지를 할 수 있도록 모델링해보자.</br>
 
