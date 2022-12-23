@@ -51,9 +51,23 @@ Saturation 블록은 속도를 positive 영역으로, 가속도를 -3에서 2로
 
 Simulink에서 제공하는 Adaptive Cruise Control 모델을 적용해보자.
 
+<h3>Adaptive Cruise Control System Block</h3>
+
+Adaptive Cruise Control 블록의 파라미터는 아래 그림과 같이 설정할 수 있다.</br>
+
+![image](https://user-images.githubusercontent.com/87568714/209351415-31a1d2ff-4ded-49ed-bd8b-2a314419fa0b.png)
+
+Ego Vehicle Model에서는 초기속도, 최대속도, 앞차와의 최소거리를 설정할 수 있고,
+
+Adaptive Cruise Controller Constraints에서는 최대 가속도와 최소 가속도를,
+
+Model Predictive Controller Settings에서는 해당 블록의 샘플링 빈,
+
+Controller Behavior에서는 숫자가 1에 가까울수록 응답시간이 빨라지면서 빠른 변화를 보인다.
+
 <h3>모델링 과정</h3>
 
-앞서 주제 1에서 진행했던 차량 모델에 Adaptive Cruise Control을 적용하여 차량이 앞선 차량과 자동으로 거리유지를 할 수 있도록 모델링해보자.</br>
+앞서 설계했던 차량 모델에 Adaptive Cruise Control을 적용하여 차량이 앞선 차량과 자동으로 거리유지를 할 수 있도록 모델링해보자.</br>
 
 ![image](https://user-images.githubusercontent.com/87568714/209345521-7e5a3cc2-802b-4d5f-8a9d-8c924f86057f.png)
 
@@ -79,7 +93,8 @@ Following Vehicle의 속도가 30m/s 에서 점점 감소하여 20m/s로 수렴�
 
 따라서 두 차량간의 거리가 정상적으로 유지되는것을 확인할 수 있다.
 
-<h3>Adaptive Cruise Control System Block 분석</h3>
+
+
 
 
 
