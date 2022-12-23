@@ -31,7 +31,7 @@
 
 Saturation Block을 통해 가속도와 속도의 limit을 설정하였다.</br>
 
-![image](https://user-images.githubusercontent.com/87568714/208416518-fca6efe6-9498-49ca-8343-1145783cde33.png)
+![image](https://user-images.githubusercontent.com/87568714/209339540-05c2b1f8-1480-494c-926c-5be759a95a81.png)
 
 올바르게 설계되었는지 확인하기 위해 초기 속도를 10m/s, 초기 가속도를 100m/s, Reference 속도를 20으로,
 
