@@ -8,7 +8,7 @@
 
 <h3>목차</h3>
 
-주제 1. 속도와 가속도 사이의 간단한 전달함수를 활용하여 차량을 모델링해보자.</br></br>
+주제 1. 속도와 가속도 사이의 역학을 간단한 전달함수로 설정하여 차량을 모델링해보자.</br></br>
 
 주제 2. Simulink에서 제공하는 Adaptive Cruise Control 모델을 적용해보자.</br></br>
 
@@ -46,3 +46,48 @@ Saturation 블록은 속도를 positive 영역으로, 가속도를 -3에서 2로
 위치 그래프는 100에서 시작하여 5초 이후로는 속도 20에 맞춰 일정하게 증가하는것을 확인할 수 있다.
 
 설계 의도대로 모델링된것을 확인할 수 있었다.
+
+<h3>주제 2</h3>
+
+Simulink에서 제공하는 Adaptive Cruise Control 모델을 적용해보자.
+
+<h3>모델링 과정</h3>
+
+앞서 주제 1에서 진행했던 차량 모델에 Adaptive Cruise Control을 적용하여 차량이 앞선 차량과 자동으로 거리유지를 할 수 있도록 모델링해보자.</br>
+
+![image](https://user-images.githubusercontent.com/87568714/209345521-7e5a3cc2-802b-4d5f-8a9d-8c924f86057f.png)
+
+위 그림은 차량간의 거리유지를 확인하기 위해 차량 모델 두개를 각각 Leading Vehicle과 Following Vehicle으로 설정하였다.
+
+Leading Vehicle의 속도와 차량간의 상대적 거리를 아래와 같이 Following Vehicle의 Adaptive Cruise Control 블록의 입력값으로 받았다.</br>
+
+![image](https://user-images.githubusercontent.com/87568714/209345111-8240df38-5b21-4919-9687-e5477fa2ddf6.png)
+
+시뮬레이션을 위해 Leading Vehicle의 속도는 20m/s, 초기 위치는 100m, Following Vehicle의 속도는 30m/s, 초기 위치는 0m로 설정하였다.
+
+위 조건으로 시뮬레이션 했을때 두 차량간의 거리는 다음과 같았다.</br>
+
+![image](https://user-images.githubusercontent.com/87568714/209346859-abbaf8fe-fe42-4a3f-9493-2c59fcf7b8b1.png)
+
+초기 상대적 거리 100m에서 점점 거리가 줄어들어 대략 38m 정도로 줄어들고 이후로 더이상 거리가 좁혀지지 않는것을 확인할 수 있다.
+
+그렇다면 두 차량의 속도는 어떠할까?</br>
+
+![image](https://user-images.githubusercontent.com/87568714/209347479-5aae89c0-1343-4b70-ada2-64c39aba7bf7.png)
+
+Following Vehicle의 속도가 30m/s 에서 점점 감소하여 20m/s로 수렴한것을 확인할 수 있다.
+
+따라서 두 차량간의 거리가 정상적으로 유지되는것을 확인할 수 있다.
+
+<h3>Adaptive Cruise Control System Block 분석</h3>
+
+
+
+
+
+
+
+
+
+
+
