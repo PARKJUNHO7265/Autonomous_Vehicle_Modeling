@@ -23,7 +23,7 @@
 
 속도와 가속도 사이의 역학을 간단한 전달함수로 설정하여 차량을 모델링해보자.
 
-<h3>모델링 과정</h3>
+**모델링 과정**
 
 속도와 가속도 사이 역학은 MathWorks의 Adaptive Cruise Control에서 참고하였다.
 
@@ -51,7 +51,7 @@ Saturation 블록은 속도를 positive 영역으로, 가속도를 -3에서 2로
 
 Simulink에서 제공하는 Adaptive Cruise Control 모델을 적용해보자.
 
-<h3>Adaptive Cruise Control System Block</h3>
+**Adaptive Cruise Control System Block**
 
 Adaptive Cruise Control 블록의 파라미터는 아래 그림과 같이 설정할 수 있다.</br>
 
@@ -65,7 +65,7 @@ Model Predictive Controller Settings에서는 해당 블록의 샘플링 빈,
 
 Controller Behavior에서는 숫자가 1에 가까울수록 응답시간이 빨라지면서 빠른 변화를 보인다.
 
-<h3>모델링 과정</h3>
+**모델링 과정**
 
 앞서 설계했던 차량 모델에 Adaptive Cruise Control을 적용하여 차량이 앞선 차량과 자동으로 거리유지를 할 수 있도록 모델링해보자.</br>
 
@@ -92,17 +92,4 @@ Leading Vehicle의 속도와 차량간의 상대적 거리를 아래와 같이 F
 Following Vehicle의 속도가 30m/s 에서 점점 감소하여 20m/s로 수렴한것을 확인할 수 있다.
 
 따라서 두 차량간의 거리가 정상적으로 유지되는것을 확인할 수 있다.
-
-
-
-
-
-
-
-
-
-
-
-
-
 
