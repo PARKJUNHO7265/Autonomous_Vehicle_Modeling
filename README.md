@@ -103,5 +103,6 @@ VR SINK라는 블록을 활용하여 앞서 설계한 모델을 시뮬레이션 
 
 15초간 시뮬레이션하였으며 아래와 같이 차량간의 거리가 점점 가까워지자 뒤 차량의 속도가 점점줄어 이후 다시 출발하는것을 확인할 수 있다.
 
-![제목 없는 동영상 - Clipchamp로 제작 (1)](https://user-images.githubusercontent.com/87568714/214251005-4de174ff-7fc5-4351-a055-be91db8e5e78.gif)
+![제목 없는 동영상 - Clipchamp로 제작 (1)](https://user-images.githubusercontent.com/87568714/214252492-98ab0292-585f-46be-bab2-2e09ceb4682c.gif)
+
 
