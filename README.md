@@ -69,9 +69,9 @@ Leading Vehicle의 속도와 차량간의 상대적 거리를 아래와 같이 F
 
 Following Vehicle의 속도가 30m/s 에서 점점 감소하여 20m/s로 수렴한것을 확인할 수 있다.
 
-따라서 두 차량간의 거리가 정상적으로 유지되는것을 확인할 수 있다.
+따라서 두 차량간의 거리가 정상적으로 유지되는것을 확인할 수 있다.</br></br></br>
 
-<h2>주제 3 : 챃량 간 거리에 따른 다른 주행모드 적용하기</h2>
+<h2>주제 3 : 차량 간 거리에 따른 다른 주행모드 적용하기</h2>
 
 Adaptive Cruise Model이 차량간의 거리를 일정하게 유지시켜준다면 차량간의 거리가 매우 먼 경우에는 ACC의 필요성이 떨어진다.
 
@@ -83,12 +83,19 @@ StateFlow를 이용하여 차량간의 거리가 60m보다 큰 경우는 ACC를 
 
 30m이하로 거리가 떨어지면 급감속하도록 브레이크를 작동하도록 설계하였다.
 
-최종적인 차량의 모델링은 아래와 같다. Multiport Switch를 이용하여 조건에 StateFlow를 적용하고 각각의 port에 주행모드를 입력하였다.
-
-
-
-
 ![image](https://user-images.githubusercontent.com/87568714/214213995-ad8d1f48-8837-4a4e-89d1-e2770257d58b.png)
+
+최종적인 차량의 모델링은 위와 같다. Multiport Switch를 이용하여 조건에 StateFlow를 적용하고 각각의 port에 주행모드를 입력하였다.
+
+이후 모델을 10초간 시뮬레이션하여 Multiport Switch의 출력값과 차량간의 거리를 살펴보았다.
+
+![image](https://user-images.githubusercontent.com/87568714/214216472-479cf2c3-75a2-4297-b3d3-a7b5072cab61.png)
+
+![image](https://user-images.githubusercontent.com/87568714/214216257-0dea2a0d-604c-4223-9571-a754140a3366.png)
+
+차량간의 거리가 100m에서 시작하여 2초후 60m가 되어 ACC가 켜졌고 4초후 30m가 되어 브레이크가 작동되었으며 대략 9.3초후 다시 60m를 넘어 ACC가 종료되었다.<br/><br/><br/>
+
+<h2>주제 4 : 3D Animation Block으로 테스트하기</h2>
 
 VR SINK라는 블록을 활용하여 앞서 설계한 모델을 시뮬레이션 해보자.
 
