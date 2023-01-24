@@ -12,14 +12,12 @@
 
 주제 2. Simulink에서 제공하는 Adaptive Cruise Control 모델을 적용해보자.</br></br>
 
-주제 3. 위에서 만든 모델을 Simulink에서 제공하는 3D Animation Block을 통해 시뮬레이션 해보자.</br></br>
+주제 3. 조향시스템을 모델링하고 이를 Simulink에서 제공하는 3D Animation Block을 통해 시뮬레이션 해보자.</br></br>
 
-주제 4. 간단한 차량 측면 동작을 모델링해보자.</br></br>
-
-주제 5. 다른 주행 모드도 적용해보자.</br></br></br>
+주제 4. 다른 주행 모드도 적용해보자.</br></br></br>
 
 
-<h2>주제 1</h2>
+<h2>주제 1 : 기본 차량 모델 설계하기</h2>
 
 속도와 가속도 사이의 역학을 간단한 전달함수로 설정하여 차량을 모델링해보자.
 
@@ -47,7 +45,7 @@ Saturation 블록은 속도를 positive 영역으로, 가속도를 -3에서 2로
 
 설계 의도대로 모델링된것을 확인할 수 있었다.</br></br></br>
 
-<h2>주제 2</h2>
+<h2>주제 2 : Adaptive Cruise Control 적용하기</h2>
 
 Simulink에서 제공하는 Adaptive Cruise Control 모델을 적용해보자.
 
@@ -93,3 +91,12 @@ Following Vehicle의 속도가 30m/s 에서 점점 감소하여 20m/s로 수렴�
 
 따라서 두 차량간의 거리가 정상적으로 유지되는것을 확인할 수 있다.
 
+<h2>주제 3 : 조향시스템 모델링 후 3D Animation Block 생성하기</h2>
+
+
+
+VR SINK라는 블록을 활용하여 앞서 설계한 모델을 시뮬레이션 해보자.
+
+먼저 VR SINK 블록에 사용한 가상세계 파일은 https://github.com/MustafaSaraoglu/AutonomousVehicleModeling의 PlatoonWorld.WRL 파일을 사용하였다.
+
+해당 파일에서 Leading Vehicle과 Following Vehicle의 
