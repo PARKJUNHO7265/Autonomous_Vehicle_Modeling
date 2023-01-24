@@ -12,16 +12,14 @@
 
 주제 2. Simulink에서 제공하는 Adaptive Cruise Control 모델을 적용해보자.</br></br>
 
-주제 3. 조향시스템을 모델링하고 이를 Simulink에서 제공하는 3D Animation Block을 통해 시뮬레이션 해보자.</br></br>
+주제 3. 차량 간 거리에 따라 다른 주행 모드도 적용해보자.</br></br>
 
-주제 4. 다른 주행 모드도 적용해보자.</br></br></br>
+주제 4. 위 모델을 Simulink에서 제공하는 3D Animation Block을 통해 시뮬레이션 해보자.</br></br>
 
 
 <h2>주제 1 : 기본 차량 모델 설계하기</h2>
 
 속도와 가속도 사이의 역학을 간단한 전달함수로 설정하여 차량을 모델링해보자.
-
-<h3>모델링 과정</h3>
 
 속도와 가속도 사이 역학은 MathWorks의 Adaptive Cruise Control에서 참고하였다.
 
@@ -46,24 +44,6 @@ Saturation 블록은 속도를 positive 영역으로, 가속도를 -3에서 2로
 설계 의도대로 모델링된것을 확인할 수 있었다.</br></br></br>
 
 <h2>주제 2 : Adaptive Cruise Control 적용하기</h2>
-
-Simulink에서 제공하는 Adaptive Cruise Control 모델을 적용해보자.
-
-<h3>Adaptive Cruise Control System Block</h3>
-
-Adaptive Cruise Control 블록의 파라미터는 아래 그림과 같이 설정할 수 있다.</br>
-
-![image](https://user-images.githubusercontent.com/87568714/209351415-31a1d2ff-4ded-49ed-bd8b-2a314419fa0b.png)
-
-Ego Vehicle Model에서는 초기속도, 최대속도, 앞차와의 최소거리를 설정할 수 있고,
-
-Adaptive Cruise Controller Constraints에서는 최대 가속도와 최소 가속도를,
-
-Model Predictive Controller Settings에서는 해당 블록의 샘플링 빈,
-
-Controller Behavior에서는 숫자가 1에 가까울수록 응답시간이 빨라지면서 빠른 변화를 보인다.
-
-<h3>모델링 과정</h3>
 
 앞서 설계했던 차량 모델에 Adaptive Cruise Control을 적용하여 차량이 앞선 차량과 자동으로 거리유지를 할 수 있도록 모델링해보자.</br>
 
@@ -91,12 +71,27 @@ Following Vehicle의 속도가 30m/s 에서 점점 감소하여 20m/s로 수렴�
 
 따라서 두 차량간의 거리가 정상적으로 유지되는것을 확인할 수 있다.
 
-<h2>주제 3 : 조향시스템 모델링 후 3D Animation Block 생성하기</h2>
+<h2>주제 3 : 챃량 간 거리에 따른 다른 주행모드 적용하기</h2>
+
+Adaptive Cruise Model이 차량간의 거리를 일정하게 유지시켜준다면 차량간의 거리가 매우 먼 경우에는 ACC의 필요성이 떨어진다.
+
+따라서, 차량간의 거리가 일정 거리 이상인 경우는 ACC를 종료하고 일정 거리 미만 일때는 다시 작동하는 모델을 설계해보자.
+
+![image](https://user-images.githubusercontent.com/87568714/214213761-5facbb02-0a71-49ef-8bbb-229c6c35aa77.png)
+
+StateFlow를 이용하여 차량간의 거리가 60m보다 큰 경우는 ACC를 종료하고, 60m이하인 경우는 ACC를 켰으며, 
+
+30m이하로 거리가 떨어지면 급감속하도록 브레이크를 작동하도록 설계하였다.
+
+최종적인 차량의 모델링은 아래와 같다. Multiport Switch를 이용하여 조건에 StateFlow를 적용하고 각각의 port에 주행모드를 입력하였다.
 
 
+
+
+![image](https://user-images.githubusercontent.com/87568714/214213995-ad8d1f48-8837-4a4e-89d1-e2770257d58b.png)
 
 VR SINK라는 블록을 활용하여 앞서 설계한 모델을 시뮬레이션 해보자.
 
-먼저 VR SINK 블록에 사용한 가상세계 파일은 https://github.com/MustafaSaraoglu/AutonomousVehicleModeling의 PlatoonWorld.WRL 파일을 사용하였다.
+먼저 VR SINK 블록에 사용한 가상세계 파일은 https://github.com/MustafaSaraoglu/AutonomousVehicleModeling 의 PlatoonWorld.WRL 파일을 사용하였다.
 
 해당 파일에서 Leading Vehicle과 Following Vehicle의 
